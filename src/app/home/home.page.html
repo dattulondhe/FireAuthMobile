@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <h1 *ngIf="authService.user | async">
+    Welcome {{ (authService.user | async)?.email }}!
+  </h1>
+
+  <div *ngIf="!(authService.user | async)">
+
+    <ion-item>
+      <ion-label color="primary">Email</ion-label>
+      <ion-input [(ngModel)]="email" placeholder="Enter email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" placeholder="Enter
+        password"></ion-input>
+    </ion-item>
+
+    <ion-input></ion-input>
+
+    <ion-button (click)="signup()" [disabled]="!email || !password">
+      Signup
+    </ion-button>
+
+    <ion-button (click)="login()" [disabled]="!email || !password">
+      Login
+    </ion-button>
+  </div>
+
+  <div id="recaptcha-container"></div>
+
+  <ion-button (click)="logout()" *ngIf="authService.user | async">
+    Logout
+  </ion-button> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size='3' style="font-size:0.8em;font-weight:bolder;">
+        <strong>
+          PRE FIX
+        </strong>
+      </ion-col>
+      <ion-col size='9' style="font-size:0.8em;font-weight:bolder;">
+        <strong>
+          PHONE NUMBER
+        </strong>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size='3'>
+        <ion-input [(ngModel)]="prefix" placeholder="+91" type="tel"
+          maxlength='4'></ion-input>
+      </ion-col>
+      <ion-col size='9'>
+        <ion-input [(ngModel)]="line" placeholder="Mobile no" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
+    <div class='ion-center'
+      style="position:relative;z-index:10;width:100%;margin-left:2em;margin-right:auto;">
+      <div id="recaptcha-container"></div>
+    </div>
+  </ion-grid>
+  <ion-button (click)="sendLoginCode()" color="primary"
+    style="z-index:4;width:100%;">
+    <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    SUBMIT
+  </ion-button>
+
+  <ion-input [(ngModel)]="verifCode" type="number" placeholder="verifCode">
+  </ion-input>
+  <ion-button (click)="submitVerif()">Verify Code</ion-button>
+</ion-content>
